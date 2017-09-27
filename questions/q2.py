@@ -16,7 +16,7 @@ def get_most_common_char(input_str):
     ################################################################
 
     # define a dictionary mapping all letters a-z to their current counts, which start at 0
-    char_counts = {chr(i): 0 for i in range(ord('a'), ord('z'))}
+    char_counts = {chr(i): 0 for i in range(ord('A'), ord('z')) if i not in range(ord('Z') + 1, ord('a') - 1)}
 
     # run through input string to get character counts
     for char in input_str:
