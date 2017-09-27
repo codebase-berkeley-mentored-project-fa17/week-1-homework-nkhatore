@@ -16,12 +16,14 @@ def get_most_common_char(input_str):
     ################################################################
 
     # define a dictionary mapping all letters a-z to their current counts, which start at 0
-    char_counts = {chr(i): 0 for i in range(ord('A'), ord('z')) if i not in range(ord('Z') + 1, ord('a') - 1)}
-
+    #char_counts = {chr(i): 0 for i in range(ord('A'), ord('z')) if i not in range(ord('Z') + 1, ord('a') - 1)}
+    char_counts = {chr(i): 0 for i in range(ord('a'), ord('z'))}
     # run through input string to get character counts
     for char in input_str:
         if char in char_counts:
-            char_counts[char] = char_counts[char] + 1
+            char_counts[char] += 1
+        elif chr(ord(char) + 32) in char_counts:
+            char_counts[chr(ord(char) + 32)] += 1
 
     # get the character with the maximum count from the dictionary
     max_count = 0
